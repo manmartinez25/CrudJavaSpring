@@ -29,26 +29,31 @@ public class UserController {
     @Autowired
     private UserService userService;
     
+    /*En el siguiente método se hace llamado para ejecutar el método getUsers() del paquete userService*/
     @GetMapping
     public ArrayList<UserModel> getUsers(){
         return this.userService.getUsers();
     }
     
+    /*En el siguiente método se hace llamado para ejecutar el método saveUser() del paquete userService*/
     @PostMapping
     public UserModel saveUser(@RequestBody UserModel user){
         return this.userService.saveUser(user);
     }
     
+    /*En el siguiente método se hace llamado para ejecutar el método getById() del paquete userService*/
     @GetMapping(path = "/{id}")
     public Optional<UserModel> getUserById(@PathVariable("id") Long id){
         return this.userService.getById(id);
     }
     
+    /*En el siguiente método se hace llamado para ejecutar el método updateById() del paquete userService*/
     @PutMapping(path = "/{id}")
     public UserModel UpdateUserById(@RequestBody UserModel userModel,@PathVariable("id") Long id){
         return this.userService.updateById(userModel, id);
     }
     
+    /*En el siguiente método se hace llamado para ejecutar el método deleteUser() del paquete userService*/
     @DeleteMapping(path = "/{id}")
     public String deleteById(@PathVariable("id") Long id){
         boolean ok = (boolean) this.userService.deleteUser(id);

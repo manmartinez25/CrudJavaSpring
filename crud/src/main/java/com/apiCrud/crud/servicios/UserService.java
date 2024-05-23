@@ -20,20 +20,27 @@ public class UserService {
     @Autowired
     IUserRepositorio userRepositorio;
     
+    /*El siguiente método permite visualizar todos los objetos UserModel que hay en la base de datos,
+    haciendo uso del método findAll del repositorio de Spring*/
     public ArrayList<UserModel> getUsers(){
-        
         return (ArrayList<UserModel>) userRepositorio.findAll();
-        
     }
     
+    /*El siguiente método permite guardar un objeto UserModel en la base de datos,
+    haciendo uso del método save del repositorio de Spring*/
     public UserModel saveUser(UserModel user){
         return userRepositorio.save(user);
     }
     
+    /*El siguiente método permite visualizar un objeto UserModel que se encuentra en la base de datos mediante el id,
+    haciendo uso del método findById del repositorio de Spring*/
     public Optional <UserModel> getById(Long id){
         return userRepositorio.findById(id);
     }
     
+    /*El siguiente método permite actualizar un objeto UserModel en la base de datos,
+    haciendo uso del método save del repositorio de Spring, primero obteniendo el objeto
+    que ya existía y posteriormente guardando los cambios*/
     public UserModel updateById(UserModel request, Long id){
         UserModel user = userRepositorio.findById(id).get();
         
@@ -46,6 +53,8 @@ public class UserService {
         return userRepositorio.save(user);
     }
     
+    /*El siguiente método permite borrar un objeto UserModel en la base de datos mediante su id,
+    haciendo uso del método deleteById del repositorio de Spring*/
     public Boolean deleteUser(Long id){
         try{
             userRepositorio.deleteById(id);

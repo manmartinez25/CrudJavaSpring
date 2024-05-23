@@ -11,7 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/*En la presente pestaña se hace la definición de la entidad que va a corresponder al objeto user, el cual será el objeto que se 
+/*En la presente pestaña se hace la definición de la entidad que va a corresponder al objeto userModel, el cual será el objeto que se 
 modificará con los métodos de la apliación.
 Adicionalmente, incluye los getters y setters para efetuar las operaciones en cada una de las variables que representarán 
 un columna en la base de datos*/
