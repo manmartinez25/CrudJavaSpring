@@ -29,6 +29,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     
+       
     /*En el siguiente método se hace llamado para ejecutar el método getUsers() del paquete userService*/
     @GetMapping
     public ArrayList<UserModel> getUsers(){
@@ -37,7 +38,7 @@ public class UserController {
     
     /*En el siguiente método se hace llamado para ejecutar el método saveUser() del paquete userService*/
     @PostMapping
-    public UserModel saveUser(@RequestBody UserModel user){
+    public String saveUser(@RequestBody UserModel user){
         return this.userService.saveUser(user);
     }
     
@@ -49,7 +50,7 @@ public class UserController {
     
     /*En el siguiente método se hace llamado para ejecutar el método updateById() del paquete userService*/
     @PutMapping(path = "/{id}")
-    public UserModel UpdateUserById(@RequestBody UserModel userModel,@PathVariable("id") Long id){
+    public String UpdateUserById(@RequestBody UserModel userModel,@PathVariable("id") Long id){
         return this.userService.updateById(userModel, id);
     }
     
